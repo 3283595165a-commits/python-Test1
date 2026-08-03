@@ -1,0 +1,15 @@
+#布尔类型使int类型的子类型，True为1False为0
+print(True+False)
+#使用bool()来进行字符转换
+print(bool(1))
+print(bool(0))
+#python中bool()除了0以外任何数，其他全部转换为True
+print(bool(123))
+print(bool(1.8e3))
+print(bool(1.3))
+print(bool(-123))
+#python中bool()除了空字符串，其他全部转换为True
+print(bool('64'))
+print(bool('1.2'))
+print(bool('我'))
+print(bool('wo'))
