@@ -1,0 +1,9 @@
+# Recommended development & testing tools
+pytest
+black
+flake8
+
+# Optional common libraries you may want later
+# pandas
+# flask
+# requests

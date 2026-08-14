@@ -1,0 +1,1 @@
+Day 1 到 Day 4 的练习文件放在这里。运行 `python day01_data_types_and_operators.py`、`python day02_conditionals.py`、`python day03_loops.py` 或 `python day04_functions.py` 来查看结果。

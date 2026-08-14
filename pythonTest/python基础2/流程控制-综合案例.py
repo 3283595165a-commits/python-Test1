@@ -1,62 +1,54 @@
-#一共三个关卡（每个关卡只有一道题），答对进入下一关，3关都答对则挑战成功！
-#1.答错可从事，每道题都有三次回答机会，若三次均打错，则挑战失败，游戏自动结束
-#2.如果用户输入为空，则提示重新作答，且不浪费机会
-#3.如果用户输入字母Q，则直接退出游戏
-print('欢迎来到：答题闯关挑战赛（输入q可随时退出） \n')
-#题目与答案
-ques1 = 'python中用于输出的函数是？'
-ans1 = 'print'
-ques2= 'python中用于表示逻辑“并且”的关键字是？'
-ans2= 'and'
-ques3= 'python属于是编译型还是解释型'
-ans3= '解释型'
-#最多可尝试次数
-max_tries =3
-#总关卡书
-total_levels =3
-#是否处于可游戏状态
-is_playing =True
-#根据题目数量开始循环
+"""答题闯关挑战赛（可单元测试的重构版）
 
-for level in range(1, total_levels +1):
-    #打印当前是第几关
-    print(f'*****第{level}关*****')
-    #取出当前关卡所对应的题目和答案
-    if level ==1:
-        question, answer = ques1, ans1
-    elif level==2:
-        question, answer = ques2, ans2
-    else :
-        question, answer = ques3, ans3
-        #记录当前关卡尝试次数
-    tries=1
-    #若已经尝试的次数，小于等于最大尝试次数，则进入循环
-    while  tries<=max_tries:
-#向用户提问
-        user_input = input(''+question)
-        #根据用户的输入，来决定做什么
-        if user_input == answer:
-            print('回答正确 \n')
-            break
-        elif user_input =='':
-            print('您的输入为空，请重新作答！\n')
-            continue
-        elif user_input =='q':
-            print('您已经退出游戏！\n')
-            is_playing =False
-            break
-        else:
-            #计算剩余次数
+规则：
+- 一共三个关卡，每关一道题，答对进入下一关，三关都答对则挑战成功
+- 每题最多有若干次尝试（默认 3 次），用户输入为空不消耗机会
+- 输入 `q` 可随时退出
+
+模块提供 `play_game` 函数，接受可替换的 `input_func` 与 `print_func` 以便测试。
+"""
+
+QUESTIONS = [
+    ("python中用于输出的函数是？", "print"),
+    ("python中用于表示逻辑“并且”的关键字是？", "and"),
+    ("python属于是编译型还是解释型", "解释型"),
+]
+
+
+def play_game(max_tries=3, input_func=input, print_func=print):
+    """运行答题闯关游戏。
+
+    返回 True 表示通关成功，False 表示中途退出或挑战失败。
+    """
+    print_func('欢迎来到：答题闯关挑战赛（输入q可随时退出） \n')
+
+    for level, (question, answer) in enumerate(QUESTIONS, start=1):
+        print_func(f'*****第{level}关*****')
+        tries = 1
+        while tries <= max_tries:
+            user_input = input_func(question)
+            if user_input == answer:
+                print_func('回答正确 \n')
+                break
+            if user_input == '':
+                print_func('您的输入为空，请重新作答！\n')
+                continue
+            if user_input == 'q':
+                print_func('您已经退出游戏！\n')
+                return False
+            # 错误答案
             leave = max_tries - tries
-            #判断是否还有剩余次数
-            if leave >0 :
-                print(f'回答错误，您还剩{leave}次机会！\n')
-                tries+=1
+            if leave > 0:
+                print_func(f'回答错误，您还剩{leave}次机会！\n')
+                tries += 1
                 continue
             else:
-                print(f'挑战失败，本题的答案是：{answer},游戏结束！')
-                is_playing==False
-    if is_playing == False:
-        break
-if is_playing == True:
-    print('恭喜你通关了')
+                print_func(f'挑战失败，本题的答案是：{answer},游戏结束！')
+                return False
+
+    print_func('恭喜你通关了')
+    return True
+
+
+if __name__ == '__main__':
+    play_game()

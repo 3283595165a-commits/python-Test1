@@ -1,0 +1,21 @@
+Week,Day,Topic,Task
+Week 1,Monday,数据类型与运算符,复习整数/浮点/字符串，做算术与字符串练习（30-40min 理论，80min 练习）
+Week 1,Tuesday,条件分支,实现分级评分脚本并测试边界情况
+Week 1,Wednesday,循环,练习九九乘法表、列表遍历与循环控制（break/continue）
+Week 1,Thursday,字符串处理,文本切片/格式化/转义，练习词频统计
+Week 1,Friday,文件 I/O 与异常,读写文本文件，处理文件相关异常并记录日志
+Week 2,Monday,函数与参数,封装常用逻辑为函数，练习可变参数与默认参数
+Week 2,Tuesday,模块与包,把练习脚本重构为模块并通过导入复用
+Week 2,Wednesday,标准库应用,练习 `os`/`json`/`datetime`，实现配置读写
+Week 2,Thursday,单元测试,使用 `pytest` 或 `unittest` 为函数编写测试用例
+Week 2,Friday,代码风格与工具,使用 `black` 格式化并用 `flake8` 修复风格问题
+Week 3,Monday,列表与元组,推导式、排序、切片练习，封装为函数并测试
+Week 3,Tuesday,字典与集合,实现词频统计并练习集合运算
+Week 3,Wednesday,面向对象,设计 `Task` 类，练习封装与继承
+Week 3,Thursday,CLI 应用,用 `argparse` 实现待办管理的基本命令行接口
+Week 3,Friday,算法入门,学习查找/排序基础，手写简单算法并分析复杂度
+Week 4,Monday,小项目（Web/Data）,Web(Flask): 项目骨架与路由 / Data(Pandas): CSV 加载与预览
+Week 4,Tuesday,小项目（Web/Data）,Web: 表单处理与模板 / Data: 数据清洗（缺失值、类型转换）
+Week 4,Wednesday,小项目（Web/Data）,Web: 表单验证与错误处理 / Data: 简单统计与可视化
+Week 4,Thursday,小项目（Web/Data）,Web: 模块化与测试 / Data: 封装分析流程并写测试
+Week 4,Friday,小项目（Web/Data）,Web: 部署准备与文档 / Data: 整理分析报告与 README
